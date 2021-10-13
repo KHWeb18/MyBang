@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package com.example.demo.config;
-=======
 package com.mybang.khweb.config;
->>>>>>> upstream/main
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,15 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
-<<<<<<< HEAD
-/* 절대 이부분의 설정을 바꾸지 마십시오!!!!!!!!
- *  바꾸는 순간 모든 통신이 막히게 됩니다. */
-@EnableWebSecurity
-@Configuration
-=======
 @Configuration
 @EnableWebSecurity
->>>>>>> upstream/main
 @AllArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -45,8 +34,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().csrf().disable()
                 .httpBasic();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> upstream/main

@@ -1,30 +1,42 @@
 <template>
-    <div align="center">
-        <h2>회원가입</h2>
-        <p><a href="findId">아이디 찾기</a></p>
-        <member-register-form @submit="onSubmit"/>
+    <div>
+        <div align="center">
+            <h2>회원 가입</h2>
+        </div>
+        <member-join-column-test-form @submit="onSubmit"/>
+        
+        <v-spacer></v-spacer>
+       
+            
+     
     </div>
 </template>
 
 <script>
-import MemberRegisterForm from '@/components/member/MemberRegisterForm.vue'
+import MemberJoinColumnTestForm from '@/components/member/MemberJoinColumnTestForm.vue'
 import axios from 'axios'
 export default {
     name: 'MemberRegisterPage',
     components: {
-        MemberRegisterForm
+        MemberJoinColumnTestForm
     },
     methods: {
         onSubmit (payload) {
-            const { email, userName, password, passwordConfirm, auth  } = payload
-            axios.post('http://localhost:7777/member/register', { email, userName, password, passwordConfirm, auth })
+            const { userId, password, email, name, age, sex, phone, auth } = payload
+            axios.post('http://localhost:7777/jpamember/register', {
+                        userId, name, password,email, name, age, sex, phone, auth
+                    })
                     .then(res => {
-                        alert('회원가입이 완료되었습니다! - ' + res)
-                        this.$router.push("login");
-                        this.$router.go();
+                        alert('회원가입이 완료되었습니다' + res)
+                        
+                        this.$router.push({
+                            name: 'Home'
+                            
+                        })
+                        
                     })
                     .catch(res => {
-                        alert('이미 존재하는 이메일입니다!'+ res)
+                        alert(res.response.data.message)
                     })
         }
     }

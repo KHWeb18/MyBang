@@ -1,4 +1,3 @@
-/*
 package com.mybang.khweb.entity;
 
 import lombok.Getter;
@@ -22,5 +21,6 @@ public class BaseTimeEntity {
 
     @LastModifiedDate
     private LocalDateTime modifiedDate;
+
 }
- */
+

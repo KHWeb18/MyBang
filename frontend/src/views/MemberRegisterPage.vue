@@ -1,3 +1,4 @@
+<!--
 <template>
     <div>
         <div align="center">
@@ -42,3 +43,4 @@ export default {
     }
 }
 </script>
+-->

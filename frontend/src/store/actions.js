@@ -25,6 +25,8 @@ import {
   FETCH_AGENT_ONEROOM,
   FETCH_GONGZI_LIST,
   FETCH_GONGZI,
+  FETCH_SOGAE_LIST,
+  FETCH_SOGAE,
 
   //뉴스 크롤링
   CRAWL_START,
@@ -151,10 +153,20 @@ export default {
       commit(FETCH_GONGZI, res.data);
     });
   },
+  fetchSogaeList({ commit }) {
+    return axios.get("http://localhost:7777/sogae/list").then((res) => {
+      commit(FETCH_SOGAE_LIST, res.data);
+    });
+  },
+  fetchSogae({ commit }, sogaeNo) {
+    return axios.get(`http://localhost:7777/sogae/${sogaeNo}`).then((res) => {
+      commit(FETCH_SOGAE, res.data);
+    });
+  },
 
   // 뉴스 크롤링
-  async crawlFind({ commit }, ) {
-    commit(CRAWL_START, 'data')
+  async crawlFind({ commit }) {
+    commit(CRAWL_START, "data");
     // axios.get("http://localhost:7777/" + `${category}`).then(({ data }) => {
     //   commit(CRAWL_START, data);
 

@@ -20,7 +20,8 @@ import {
   FETCH_AGENT_VILLA,
   FETCH_AGENT_ONEROOM,
   FETCH_AGENT_OFFICETEL,
-
+  FETCH_SOGAE,
+  FETCH_SOGAE_LIST,
   // 뉴스 크롤링
   CRAWL_START,
 } from "./mutation-types";
@@ -83,6 +84,12 @@ export default {
   },
   [FETCH_AGENT_OFFICETEL](state, agentOfficetel) {
     state.agentOfficetel = agentOfficetel;
+  },
+  [FETCH_SOGAE_LIST](state, sogaes) {
+    state.sogaes = sogaes;
+  },
+  [FETCH_SOGAE](state, sogae) {
+    state.sogae = sogae;
   },
 
   [CRAWL_START](state, payload) {
